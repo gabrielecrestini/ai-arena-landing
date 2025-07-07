@@ -3,64 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free‑Tool Prompt Pack – 50 Prompt</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Gumroad JS -->
-  <script async src="https://gumroad.com/js/gumroad.js"></script>
+  <title>The Digital Launch OS – Home</title>
   <style>
-    .flip-card{perspective:1000px;min-height:280px}
-    .flip-card-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;border-radius:1rem;padding:1.5rem;background-color:rgba(30,41,59,.75)}
-    .flip-card:hover .flip-card-inner{transform:rotateY(180deg)}
-    .flip-front{backface-visibility:hidden;display:flex;flex-direction:column;min-height:100%}
-    .flip-back{position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);background-color:rgba(15,23,42,.95);display:flex;align-items:center;justify-content:center;text-align:center;border-radius:1rem;padding:1.5rem}
+    :root{--c1:#0f172a;--c2:#1e293b;--c3:#38bdf8;--c4:#facc15;--c5:#e879f9}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
+    body{background:var(--c1);color:#f1f5f9;line-height:1.55;}
+    a{color:var(--c3);text-decoration:none}
+    header,footer{max-width:1160px;margin:auto;padding:1.4rem 1rem;display:flex;justify-content:space-between;align-items:center}
+    nav a{margin-left:1rem;font-size:.9rem}
+    .hero{max-width:900px;margin:4rem auto 2.5rem;text-align:center;padding:0 1rem}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.2rem);background:linear-gradient(120deg,var(--c5),var(--c3));-webkit-background-clip:text;color:transparent;margin-bottom:.8rem}
+    .hero p{font-size:1.1rem;color:#cbd5e1;margin-bottom:1.5rem}
+    .btn{display:inline-block;background:linear-gradient(120deg,var(--c3),var(--c4));color:var(--c1);padding:.9rem 2.2rem;border-radius:40px;font-weight:600;transition:transform .15s}
+    .btn:hover{transform:scale(1.03)}
+    .section{max-width:1160px;margin:auto;padding:4rem 1rem}
+    h2.sec-title{font-size:2rem;margin-bottom:1.6rem;text-align:center;background:linear-gradient(120deg,var(--c5),var(--c3));-webkit-background-clip:text;color:transparent}
+    .grid{display:grid;gap:1.5rem}
+    @media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--c2);padding:1.6rem;border-radius:1rem;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+    .card h3{font-size:1.2rem;margin-bottom:.6rem;color:var(--c4)}
+    .card p{font-size:.95rem;color:#cbd5e1}
+    .demo{background:#1a2130;border-radius:1.2rem;padding:2rem;margin-top:2.5rem;text-align:center}
+    .demo code{font-size:.8rem;color:#94a3b8;background:#0f1624;padding:.4rem .6rem;border-radius:6px;display:block;margin-top:1rem}
+    footer p{font-size:.75rem;color:#64748b}
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden">
-  <!-- Background blobs -->
-  <div class="pointer-events-none fixed inset-0 -z-10 select-none">
-    <div class="absolute -top-40 -left-32 w-[28rem] h-[28rem] rounded-full bg-fuchsia-600 mix-blend-multiply blur-3xl opacity-30"></div>
-    <div class="absolute -bottom-48 -right-36 w-[32rem] h-[32rem] rounded-full bg-indigo-600 mix-blend-multiply blur-3xl opacity-30"></div>
-  </div>
-
-  <header class="flex justify-between items-center px-6 py-4 relative z-10 max-w-7xl mx-auto">
-    <h1 class="text-2xl font-bold bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent">AI Arena</h1>
-    <a href="https://ai-arena-landing.vercel.app" class="text-sm hover:underline">🏠 Homepage</a>
+<body>
+  <header>
+    <div style="font-weight:700;font-size:1.1rem;color:var(--c4)">Digital Launch OS</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="modules.html">Moduli</a>
+      <a href="demo.html">Demo AI</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="text-center px-6 pt-16 md:pt-24 pb-20 relative z-10 max-w-3xl mx-auto">
-    <h2 class="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-lg">Free‑Tool Prompt Pack</h2>
-    <p class="text-lg md:text-xl text-slate-300 mb-10">50 prompt lunghi per <span class="text-teal-400">loghi, reels, video, automazioni</span> usando solo strumenti gratuiti.</p>
-    <a href="https://crestinova2.gumroad.com/l/fqccf?wanted=true&offer_code=FIRSTDAY" target="_blank" class="gumroad-button inline-flex items-center gap-2 bg-gradient-to-r from-teal-400 via-lime-400 to-amber-300 hover:brightness-110 text-slate-900 font-semibold py-4 px-10 rounded-full text-lg shadow-lg transition active:scale-95" data-gumroad-single-purchase="true">📥 Scarica a 9 €</a>
-    <p class="mt-3 text-sm text-slate-400 italic">Offerta termina fra <span id="countdown" class="font-mono text-amber-300">24:00:00</span></p>
+  <section class="hero">
+    <h1>Costruisci e automatizza il tuo progetto digitale in 24 ore</h1>
+    <p>Il <strong>Digital Launch OS</strong> è un sistema operativo completo: prompt AI professionali, codice pronto, automazioni Make & Zapier e strategie di crescita – tutto senza abbonamenti.</p>
+    <a class="btn" href="modules.html">Scopri i moduli →</a>
   </section>
 
-  <!-- (Rest of feature cards / sections unchanged, links updated) -->
-  <!-- Only buy buttons below need correct link -->
-
-  <section class="text-center py-20 px-6 relative z-10">
-    <h3 class="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500 bg-clip-text text-transparent">Scarica. Crea. Incassa.</h3>
-    <a href="https://crestinova2.gumroad.com/l/fqccf?wanted=true&offer_code=FIRSTDAY" target="_blank" class="gumroad-button inline-flex items-center gap-2 bg-gradient-to-r from-teal-400 via-lime-400 to-amber-300 hover:brightness-110 text-slate-900 font-semibold py-4 px-10 rounded-full text-lg shadow-lg transition active:scale-95" data-gumroad-single-purchase="true">🚀 Ottieni il Pack a 9 €</a>
-    <p class="mt-3 text-sm text-slate-400">Paghi una volta, guadagni per sempre.</p>
+  <section class="section" id="highlight">
+    <h2 class="sec-title">Cosa rende unico il prodotto?</h2>
+    <div class="grid">
+      <div class="card"><div>
+        <h3>Sviluppo Lampo</h3>
+        <p>Siti Astro/Tailwind generati dall’AI con SEO, workflow GitHub Actions e deploy su Vercel, Netlify o Cloudflare Pages.</p>
+      </div></div>
+      <div class="card"><div>
+        <h3>Automazioni No‑Code</h3>
+        <p>Blueprint Make & Zapier per contenuti social, lead, vendite, analytics e uptime – importi e vai.</p>
+      </div></div>
+      <div class="card"><div>
+        <h3>Strategie Battle‑Tested</h3>
+        <p>Piani traffico 7 giorni + crescita 90 giorni su Instagram, Twitter, Reddit e community.</p>
+      </div></div>
+    </div>
   </section>
 
-  <footer class="text-xs text-center py-8 text-slate-500 relative z-10">© 2025 AI Arena • info@ai-arena.io</footer>
+  <section class="section">
+    <h2 class="sec-title">Esempio di prompt generato</h2>
+    <div class="demo">
+      <p>Copialo nella tua AI preferita 👇</p>
+      <code>Agisci come “Web Strategist & Automation Architect 360°”…</code>
+    </div>
+  </section>
 
-  <script>
-    // 24h countdown (resets on each page load)
-    const end = Date.now() + 24*60*60*1000;
-    const el = document.getElementById('countdown');
-    function tick(){
-      const d = end - Date.now();
-      if(d<=0){el.textContent='00:00:00';clearInterval(iv);return;}
-      const h = String(Math.floor(d/3.6e6)).padStart(2,'0');
-      const m = String(Math.floor(d%3.6e6/6e4)).padStart(2,'0');
-      const s = String(Math.floor(d%6e4/1e3)).padStart(2,'0');
-      el.textContent=`${h}:${m}:${s}`;
-    }
-    tick();
-    const iv=setInterval(tick,1000);
-  </script>
+  <footer>
+    <p>© 2025 Digital Launch OS · Creato con ❤️ e AI</p>
+  </footer>
 </body>
 </html>

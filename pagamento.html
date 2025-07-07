@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pagina di pagamento - The Digital Launch OS con 3 prodotti." />
+  <title>Acquista The Digital Launch OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex flex-col">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-500 shadow-xl p-6 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-3xl font-extrabold text-white tracking-wide">The Digital Launch OS 🚀</h1>
+    <a href="index.html" class="bg-yellow-400 text-black px-6 py-3 rounded-full text-lg font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Torna alla Home</a>
+  </header>
+
+  <main class="flex-grow p-6 max-w-7xl mx-auto">
+    <section class="text-center my-16">
+      <h2 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-pink-500 animate-pulse">Scegli il tuo Prodotto</h2>
+      <p class="text-xl mb-4">Offerta valida ancora per:</p>
+      <div id="countdown" class="text-4xl font-bold text-yellow-400 animate-bounce mb-10"></div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+      <!-- Prodotto 1 -->
+      <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl hover:scale-105 transition-transform">
+        <h3 class="text-3xl font-bold mb-4">Sviluppo Sito Web Automatizzato</h3>
+        <p class="text-xl mb-4">Sistema completo per creare e automatizzare il tuo sito web in 24 ore.</p>
+        <p class="text-4xl font-bold text-yellow-400 mb-6 line-through">20€</p>
+        <p class="text-4xl font-bold text-green-400 mb-6">15€</p>
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ID_PRODOTTO_1" target="_blank" class="bg-yellow-400 text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Acquista Ora</a>
+      </div>
+
+      <!-- Prodotto 2 -->
+      <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl hover:scale-105 transition-transform">
+        <h3 class="text-3xl font-bold mb-4">Automazione Instagram</h3>
+        <p class="text-xl mb-4">Sistema completo per automatizzare la crescita organica su Instagram.</p>
+        <p class="text-4xl font-bold text-yellow-400 mb-6 line-through">20€</p>
+        <p class="text-4xl font-bold text-green-400 mb-6">15€</p>
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ID_PRODOTTO_2" target="_blank" class="bg-yellow-400 text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Acquista Ora</a>
+      </div>
+
+      <!-- Prodotto 3 -->
+      <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl hover:scale-105 transition-transform">
+        <h3 class="text-3xl font-bold mb-4">Pacchetto Completo</h3>
+        <p class="text-xl mb-4">Include sia il sistema per il sito web automatizzato che l'automazione Instagram.</p>
+        <p class="text-4xl font-bold text-green-400 mb-6">25€</p>
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ID_PRODOTTO_3" target="_blank" class="bg-yellow-400 text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Acquista Ora</a>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bg-gradient-to-r from-indigo-600 to-purple-500 p-6 text-center text-sm text-white mt-10">
+    <p>&copy; 2025 The Digital Launch OS. Tutti i diritti riservati.</p>
+    <a href="https://www.iubenda.com/it/privacy-policy-generator" target="_blank" class="underline hover:text-yellow-400">Privacy Policy</a>
+  </footer>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    const countdown = document.getElementById('countdown');
+    const offerEnd = new Date(new Date().getTime() + 6 * 24 * 60 * 60 * 1000);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = offerEnd - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        countdown.innerHTML = "Offerta scaduta";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+
+</html>
+
