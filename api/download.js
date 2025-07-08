@@ -6,8 +6,8 @@ const supabase = createClient(
 );
 
 const productFiles = {
-  modulo1: 'modulo-1.pdf',
-  modulo2: 'modulo-2.pdf',
+  modulo1: 'modulo1.pdf',
+  modulo2: 'modulo2.pdf',
   completo: 'pacchetto-completo.pdf'
 };
 

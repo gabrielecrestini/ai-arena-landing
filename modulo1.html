@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Conferma - Modulo 1</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
@@ -17,39 +17,46 @@
 <body class="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen flex flex-col items-center justify-center px-6">
   <main class="text-center max-w-2xl">
     <h1 class="text-4xl font-extrabold text-green-400 mb-4" data-aos="fade-down">✅ Acquisto Confermato!</h1>
-    <p class="text-lg text-gray-300 mb-6" data-aos="fade-up">
-      Hai sbloccato il <strong>Modulo 1</strong> del sistema <span class="text-yellow-300">The Digital Launch OS</span>.
-    </p>
-    <p class="text-md text-gray-400 mb-8" data-aos="fade-up">
-      Scarica subito il tuo modulo cliccando sul pulsante qui sotto. Il link sarà valido per 1 ora.
-    </p>
+    <p class="text-lg text-gray-300 mb-6" data-aos="fade-up">Hai sbloccato il <strong>Modulo 1</strong> del sistema <span class="text-yellow-300">The Digital Launch OS</span>.</p>
+    <p class="text-md text-gray-400 mb-8" data-aos="fade-up">Scarica subito il tuo modulo cliccando sul pulsante qui sotto. Il link sarà valido per 1 ora.</p>
 
-    <a id="download-link"
-       class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition opacity-50 pointer-events-none"
-       data-aos="zoom-in">
-       ⏳ Generazione link...
+    <a id="downloadBtn" href="#" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition" data-aos="zoom-in">
+      ⏳ Generazione link in corso...
     </a>
 
-    <p class="text-xs text-gray-500 mt-8" data-aos="fade-up">
-      Hai ricevuto anche il link via email. Controlla la cartella spam/promozioni.
-    </p>
+    <p class="text-xs text-gray-500 mt-8" data-aos="fade-up">Hai ricevuto anche il link via email. Controlla la cartella spam/promozioni.</p>
   </main>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabase = createClient(
+      "https://itrlcukvlrrglkrjxfqu.supabase.co",
+      "INSERISCI_LA_TUA_SUPABASE_KEY"
+    );
+
+    async function generateDownloadLink() {
+      const { data, error } = await supabase.storage
+        .from("downloads")
+        .createSignedUrl("modulo1.pdf", 3600);
+
+      const btn = document.getElementById("downloadBtn");
+
+      if (error || !data?.signedUrl) {
+        btn.innerText = "❌ Errore generazione link";
+        btn.disabled = true;
+        btn.href = "#";
+      } else {
+        btn.innerText = "📥 Scarica il Modulo 1 (PDF)";
+        btn.href = data.signedUrl;
+      }
+    }
+
+    generateDownloadLink();
+  </script>
 
   <script>
     AOS.init({ duration: 600 });
-
-    fetch("/api/download?product=modulo1")
-      .then(res => res.json())
-      .then(data => {
-        const link = document.getElementById("download-link");
-        link.href = data.url;
-        link.innerText = "📥 Scarica Modulo 1";
-        link.classList.remove("opacity-50", "pointer-events-none");
-      })
-      .catch(() => {
-        const link = document.getElementById("download-link");
-        link.innerText = "❌ Errore generazione link";
-      });
   </script>
 </body>
 </html>
