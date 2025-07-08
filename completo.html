@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conferma acquisto - Pacchetto Completo." />
-  <title>Grazie per il tuo acquisto!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferma - Pacchetto Completo</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
+<body class="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen flex flex-col items-center justify-center px-6">
+  <main class="text-center max-w-2xl">
+    <h1 class="text-4xl font-extrabold text-green-400 mb-4" data-aos="fade-down">✅ Acquisto Confermato!</h1>
+    <p class="text-lg text-gray-300 mb-6" data-aos="fade-up">Hai sbloccato il <strong>Pacchetto Completo</strong> di <span class="text-yellow-300">The Digital Launch OS</span>.</p>
+    <p class="text-md text-gray-400 mb-8" data-aos="fade-up">Scarica subito il materiale cliccando sul pulsante qui sotto. Riceverai anche una copia via email.</p>
 
-<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex flex-col">
-  <header class="bg-gradient-to-r from-indigo-600 to-purple-500 shadow-xl p-6 flex justify-between items-center sticky top-0 z-50">
-    <h1 class="text-3xl font-extrabold text-white tracking-wide">The Digital Launch OS 🚀</h1>
-    <a href="index.html" class="bg-yellow-400 text-black px-6 py-3 rounded-full text-lg font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Torna alla Home</a>
-  </header>
+    <a href="/pacchetto-completo.pdf" download class="bg-green-400 text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition" data-aos="zoom-in">📥 Scarica il Pacchetto Completo (PDF)</a>
 
-  <main class="flex-grow flex flex-col justify-center items-center p-6 text-center">
-    <h2 class="text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-pink-500">Grazie per il tuo acquisto!</h2>
-    <p class="text-xl mb-8 max-w-2xl leading-relaxed">Hai acquistato il prodotto: <strong>Pacchetto Completo (Sito Web + Instagram)</strong>.</p>
-    <a href="LINK_DEL_TUO_FILE_PDF_COMPLETO" target="_blank" class="bg-yellow-400 text-black px-10 py-5 rounded-full text-2xl font-bold hover:scale-110 hover:bg-yellow-300 transition-transform">Scarica Ora</a>
-    <p class="mt-10 text-lg">Se hai bisogno di assistenza, contattami su WhatsApp: <a href="https://wa.me/393923560527" target="_blank" class="underline text-yellow-400">392 356 0527</a></p>
+    <p class="text-xs text-gray-500 mt-8" data-aos="fade-up">Controlla anche la tua email (controlla spam/promozioni) per il backup del link.</p>
   </main>
 
-  <footer class="bg-gradient-to-r from-indigo-600 to-purple-500 p-6 text-center text-sm text-white">
-    <p>&copy; 2025 The Digital Launch OS. Tutti i diritti riservati.</p>
-    <a href="https://www.iubenda.com/it/privacy-policy-generator" target="_blank" class="underline hover:text-yellow-400">Privacy Policy</a>
-  </footer>
-
+  <script>AOS.init({ duration: 600 });</script>
 </body>
-
 </html>
