@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conferma - Modulo 1</title>
+  <title>Conferma - Pacchetto Completo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
@@ -17,10 +17,10 @@
 <body class="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen flex flex-col items-center justify-center px-6">
   <main class="text-center max-w-2xl">
     <h1 class="text-4xl font-extrabold text-green-400 mb-4" data-aos="fade-down">✅ Acquisto Confermato!</h1>
-    <p class="text-lg text-gray-300 mb-6" data-aos="fade-up">Hai sbloccato il <strong>Modulo 1</strong> del sistema <span class="text-yellow-300">The Digital Launch OS</span>.</p>
-    <p class="text-md text-gray-400 mb-8" data-aos="fade-up">Scarica subito il tuo modulo cliccando sul pulsante qui sotto. Il link sarà valido per 1 ora.</p>
+    <p class="text-lg text-gray-300 mb-6" data-aos="fade-up">Hai sbloccato il <strong>Pacchetto Completo</strong> del sistema <span class="text-yellow-300">The Digital Launch OS</span>.</p>
+    <p class="text-md text-gray-400 mb-8" data-aos="fade-up">Scarica subito tutto il materiale cliccando sul pulsante qui sotto. Il link sarà valido per 1 ora.</p>
 
-    <a id="download-link" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition opacity-50 pointer-events-none" data-aos="zoom-in">
+    <a id="download-link" class="bg-green-400 text-black px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition opacity-50 pointer-events-none" data-aos="zoom-in">
       ⏳ Generazione link...
     </a>
 
@@ -30,12 +30,12 @@
   <script>
     AOS.init({ duration: 600 });
 
-    fetch("/api/download?product=modulo1")
+    fetch("/api/download?product=completo")
       .then(res => res.json())
       .then(data => {
         const link = document.getElementById("download-link");
         link.href = data.url;
-        link.innerText = "📥 Scarica Modulo 1";
+        link.innerText = "📥 Scarica Pacchetto Completo";
         link.classList.remove("opacity-50", "pointer-events-none");
       })
       .catch(() => {

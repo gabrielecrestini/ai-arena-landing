@@ -1,33 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_KEY
 );
 
-const productFiles = {
-  modulo1: 'modulo1.pdf',
-  modulo2: 'modulo2.pdf',
-  completo: 'pacchetto-completo.pdf'
-};
-
 export default async function handler(req, res) {
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method Not Allowed' });
-
   const { product } = req.query;
-  if (!product || !productFiles[product]) {
+  const fileMap = {
+    modulo1: 'modulo1.pdf',
+    modulo2: 'modulo2.pdf',
+    completo: 'pacchetto-completo.pdf',
+  };
+
+  const filename = fileMap[product];
+  if (!filename) {
     return res.status(400).json({ error: 'Prodotto non valido' });
   }
 
-  const { data, error } = await supabase
-    .storage
-    .from('downloads')
-    .createSignedUrl(productFiles[product], 60 * 60); // valido 1 ora
+  try {
+    const { data, error } = await supabase.storage
+      .from('downloads')
+      .createSignedUrl(filename, 3600);
 
-  if (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Errore generazione link' });
+    if (error || !data?.signedUrl) {
+      return res.status(500).json({ error: 'Errore nella generazione del link' });
+    }
+
+    return res.redirect(data.signedUrl);
+  } catch (err) {
+    console.error('Errore server:', err);
+    return res.status(500).json({ error: 'Errore interno' });
   }
-
-  res.status(200).json({ url: data.signedUrl });
 }
